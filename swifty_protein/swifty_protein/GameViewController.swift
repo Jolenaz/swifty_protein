@@ -12,8 +12,11 @@ import SceneKit
 
 class GameViewController: UIViewController {
 
+    var renderManager : RenderManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.renderManager = RenderManager(view: self.view as! SCNView)
         
     }
     

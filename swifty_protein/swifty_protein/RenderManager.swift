@@ -7,7 +7,15 @@
 //
 
 import UIKit
+import SceneKit
 
 class RenderManager: NSObject {
 
+    var gameView : SCNView?
+    
+    init(view : SCNView) {
+        self.gameView = view
+    }
+    
+    
 }
