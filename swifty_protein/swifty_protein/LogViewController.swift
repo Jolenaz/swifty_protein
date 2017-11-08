@@ -6,6 +6,8 @@
 //  Copyright © 2017 Jonas BELLESSA. All rights reserved.
 //
 
+// Pour download PDB : https://files.rcsb.org/ligands/download/011_ideal.pdb
+
 import UIKit
 import LocalAuthentication
 
