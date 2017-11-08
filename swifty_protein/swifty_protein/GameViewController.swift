@@ -27,8 +27,8 @@ class GameViewController: UIViewController {
         self.renderManager?.dataManager = self.dataManager
         self.renderManager?.initWorld()
         
-        let a1 = Atome(pos: SCNVector3())
-        let a2 = Atome(pos: SCNVector3(x:2, y:2, z:0))
+        let a1 = Atome(pos: SCNVector3(x:-2, y:0, z:-4), type : .C)
+        let a2 = Atome(pos: SCNVector3(x:2, y:2, z:0), type : .H)
         
         self.dataManager?.addAtome(newAtome: a1, ind: 1)
         self.dataManager?.addAtome(newAtome: a2, ind: 2)
