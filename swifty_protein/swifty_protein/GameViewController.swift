@@ -39,6 +39,22 @@ class GameViewController: UIViewController {
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self.gameView)
+        let hitList = self.gameView.hitTest(location, options: nil)
+        
+        if let hitObject = hitList.first{
+            if let node = hitObject.node as? AtomeNode{
+                self.renderManager?.highLightAtome(node: node)
+            }else{
+                self.renderManager?.highLightAtome(node: nil)
+            }
+        }else{
+            self.renderManager?.highLightAtome(node: nil)
+        }
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }

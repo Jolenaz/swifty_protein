@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		109B94D41FB2F4CB003CDDEE /* Vector3Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */; };
+		109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B94D51FB34003003CDDEE /* AtomeNode.swift */; };
 		10C6E6621FB1AF4900B05592 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6E6611FB1AF4900B05592 /* AppDelegate.swift */; };
 		10C6E6641FB1AF4900B05592 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C6E6631FB1AF4900B05592 /* art.scnassets */; };
 		10C6E6661FB1AF4900B05592 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6E6651FB1AF4900B05592 /* GameViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Operator.swift; sourceTree = "<group>"; };
+		109B94D51FB34003003CDDEE /* AtomeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomeNode.swift; sourceTree = "<group>"; };
 		10C6E65E1FB1AF4900B05592 /* swifty_protein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swifty_protein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C6E6611FB1AF4900B05592 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C6E6631FB1AF4900B05592 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				10C6E6751FB1B60800B05592 /* ParserManager.swift */,
 				109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */,
 				10C6E6771FB1B65E00B05592 /* RenderManager.swift */,
+				109B94D51FB34003003CDDEE /* AtomeNode.swift */,
 				10C6E67B1FB1CF2900B05592 /* Atome.swift */,
 				10C6E6791FB1CF0C00B05592 /* DataManager.swift */,
 				10C6E66C1FB1AF4900B05592 /* LaunchScreen.storyboard */,
@@ -161,6 +164,7 @@
 				109B94D41FB2F4CB003CDDEE /* Vector3Operator.swift in Sources */,
 				10C6E6761FB1B60800B05592 /* ParserManager.swift in Sources */,
 				10C6E67C1FB1CF2900B05592 /* Atome.swift in Sources */,
+				109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */,
 				10C6E6621FB1AF4900B05592 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

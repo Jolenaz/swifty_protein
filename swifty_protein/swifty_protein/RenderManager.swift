@@ -27,8 +27,14 @@ class RenderManager: NSObject {
     var gameScene : SCNScene?
     var cameraNode : SCNNode?
     
+    var selectedNode : SCNNode
+    
     init(view : SCNView) {
         self.gameView = view
+        let geo = SCNSphere(radius: 1.2)
+        geo.materials.first?.diffuse.contents = UIColor.blue
+        self.selectedNode = SCNNode(geometry : geo)
+        self.selectedNode.opacity = 0.2
     }
     
     func initWorld(){
@@ -39,7 +45,8 @@ class RenderManager: NSObject {
         gameView?.isPlaying = true
         cameraNode = SCNNode()
         cameraNode?.camera = SCNCamera()
-        cameraNode?.position = SCNVector3(x: 0, y:5, z: 10)
+        cameraNode?.position = SCNVector3(x: 0, y:5, z: 30)
+        gameScene?.rootNode.addChildNode(cameraNode!)
     }
     
     func print_ball(){
@@ -55,7 +62,8 @@ class RenderManager: NSObject {
 
         let geo = SCNSphere(radius: 1)
         geo.materials.first?.diffuse.contents = self.AtomeColor[atome.type.rawValue] ?? self.AtomeColor["Other"]
-        let geoNode = SCNNode(geometry: geo)
+        let geoNode = AtomeNode(geometry: geo)
+        geoNode.atome = atome
         
         geoNode.position = atome.pos
         
@@ -93,6 +101,18 @@ class RenderManager: NSObject {
         
     }
     
+    func highLightAtome (node : AtomeNode?){
+        self.selectedNode.removeFromParentNode()
+        if node == nil{
+            return
+        }
+        self.selectedNode.position = node!.position
+        self.gameScene?.rootNode.addChildNode(self.selectedNode)
+        print("added")
+        
+        
+    }
+    
     private func clear_scene(){
         gameScene?.rootNode.enumerateChildNodes{
             (child,smt) in
@@ -101,7 +121,6 @@ class RenderManager: NSObject {
     }
     
 }
-
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
