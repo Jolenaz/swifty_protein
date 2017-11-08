@@ -108,8 +108,6 @@ class RenderManager: NSObject {
         }
         self.selectedNode.position = node!.position
         self.gameScene?.rootNode.addChildNode(self.selectedNode)
-        print("added")
-        
         
     }
     
