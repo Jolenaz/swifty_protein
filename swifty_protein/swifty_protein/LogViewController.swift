@@ -13,33 +13,57 @@ import LocalAuthentication
 
 class LogViewController: UIViewController {
 
+    @IBOutlet weak var orLabel: UILabel!
+    @IBOutlet weak var touchIdButton: UIButton!
+    
+    @IBAction func passCode(_ sender: UIButton) {
+        let context : LAContext = LAContext()
+        context.evaluatePolicy(.deviceOwnerAuthentication , localizedReason: "PLeaze authentify"){
+            (success, error) in
+            if success{
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "goScene", sender: nil)
+                }
+            }
+            else{
+                print ("error")
+            }
+        }
+    }
     @IBAction func log(_ sender: UIButton) {
         
         let context : LAContext = LAContext()
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "PLeaze authentify"){
-                (success, error) in
-                if success{
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "goScene", sender: nil)
-                    }
-                }
-                else{
-                    print ("error")
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "PLeaze authentify"){
+            (success, error) in
+            if success{
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "goScene", sender: nil)
                 }
             }
-        }else{
-            print("dont hae touch id")
+            else{
+                print ("error")
+            }
         }
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showTouchId()
 
         // Do any additional setup after loading the view.
     }
 
+    func showTouchId(){
+        self.orLabel.isHidden = true
+        self.touchIdButton.isHidden = true
+        let context : LAContext = LAContext()
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
+            self.orLabel.isHidden = false
+            self.touchIdButton.isHidden = false
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

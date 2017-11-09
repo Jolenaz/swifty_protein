@@ -86,15 +86,47 @@
                                     <action selector="log:" destination="ghb-hf-1sG" eventType="touchUpInside" id="neK-KJ-LGY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG6-7J-Tya">
+                                <rect key="frame" x="141.5" y="315" width="91" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="PassCode"/>
+                                <connections>
+                                    <action selector="passCode:" destination="ghb-hf-1sG" eventType="touchUpInside" id="Cmi-UY-pVq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You need to authentify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNB-Gb-TXp" userLabel="title">
+                                <rect key="frame" x="101" y="72" width="173" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="BWg-KA-rzm"/>
+                                    <constraint firstAttribute="height" constant="21" id="LrR-YX-KWc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4l-EE-tlE">
+                                <rect key="frame" x="179" y="375" width="16" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="yG6-7J-Tya" firstAttribute="centerY" secondItem="ksH-oq-tIt" secondAttribute="centerY" id="3yj-xI-dA2"/>
+                            <constraint firstItem="z4l-EE-tlE" firstAttribute="top" secondItem="yG6-7J-Tya" secondAttribute="bottom" constant="24" id="9EL-KB-cii"/>
+                            <constraint firstItem="yG6-7J-Tya" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="9sx-pV-sVF"/>
+                            <constraint firstItem="fNB-Gb-TXp" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="btq-o2-PQn"/>
+                            <constraint firstItem="z4l-EE-tlE" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="kNk-hd-mVC"/>
                             <constraint firstItem="aFe-Kq-ucS" firstAttribute="centerY" secondItem="ksH-oq-tIt" secondAttribute="centerY" multiplier="1.5" id="qKV-PO-p0E"/>
                             <constraint firstItem="aFe-Kq-ucS" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="uNl-dB-2KB"/>
+                            <constraint firstItem="fNB-Gb-TXp" firstAttribute="top" secondItem="Q0G-X0-sGR" secondAttribute="bottom" constant="8" id="vci-nm-74Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m5W-EJ-svY"/>
                     <connections>
+                        <outlet property="orLabel" destination="z4l-EE-tlE" id="wTX-eR-dWo"/>
+                        <outlet property="touchIdButton" destination="aFe-Kq-ucS" id="fFt-5b-Okm"/>
                         <segue destination="bca-f1-9GM" kind="show" identifier="goScene" id="fym-Lg-JB1"/>
                     </connections>
                 </viewController>
