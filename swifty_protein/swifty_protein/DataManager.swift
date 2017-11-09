@@ -10,16 +10,16 @@ import UIKit
 
 class DataManager: NSObject {
 
-    var atomes : [Int : Atome] = [:]
-    var liaisons : [(Int,Int)] = []
+    static var atomes : [Int : Atome] = [:]
+    static var liaisons : [(Int,Int)] = []
     
     
     func addAtome(newAtome : Atome, ind : Int){
-        if ((self.atomes[ind]) != nil){
+        if ((DataManager.atomes[ind]) != nil){
             print("Error: This atome already exist")
             return
         }
-        self.atomes.updateValue(newAtome, forKey: ind)
+        DataManager.atomes.updateValue(newAtome, forKey: ind)
     }
     
     func addLiaison (newLiaison : (Int, Int)){
@@ -27,16 +27,16 @@ class DataManager: NSObject {
             print ("Error : An atome can not be connected to itself")
             return
         }
-        if (self.atomes[newLiaison.0] == nil || self.atomes[newLiaison.1] == nil)
+        if (DataManager.atomes[newLiaison.0] == nil || DataManager.atomes[newLiaison.1] == nil)
         {
             print("Error : One of those atomes doesnt exist")
             return
         }
-        if (self.liaisons.index(of : newLiaison) != nil || self.liaisons.index(of : (newLiaison.1, newLiaison.0)) != nil){
+        if (DataManager.liaisons.index(of : newLiaison) != nil || DataManager.liaisons.index(of : (newLiaison.1, newLiaison.0)) != nil){
             print("Error : This liaison already exist")
             return
         }
-        self.liaisons.append(newLiaison)
+        DataManager.liaisons.append(newLiaison)
     }
 }
 
