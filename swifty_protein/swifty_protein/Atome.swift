@@ -28,19 +28,19 @@ class Atome: NSObject {
     var pos : SCNVector3
     var type : kind
     
-    convenience init(pos : SCNVector3, type : kind, name : String) {
+    init(pos : SCNVector3, type : kind, name : String) {
         self.pos = pos
         self.type = type
         self.name = name
     }
     
-    convenience init(pos : SCNVector3, type : kind) {
+    init(pos : SCNVector3, type : kind) {
         self.pos = pos
         self.type = type
         self.name = ""
     }
     
-    convenience init(pos : SCNVector3) {
+    init(pos : SCNVector3) {
         self.pos = pos
         self.type = .Other
         self.name = ""
