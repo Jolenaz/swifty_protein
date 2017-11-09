@@ -80,24 +80,28 @@ class RenderManager: NSObject {
             return
         }
         
-        let mid = (atomes.0.pos + atomes.1.pos) / 2.0
+        let mid0 = 3 * atomes.0.pos / 4 + atomes.1.pos / 4
+        let geo0 = SCNCylinder(radius: 0.2, height: CGFloat(hg/2.0))
+        geo0.materials.first?.diffuse.contents = self.AtomeColor[atomes.0.type.rawValue] ?? self.AtomeColor["Other"]
+        let geoNode0 = SCNNode(geometry: geo0)
+        geoNode0.position = mid0
         
-        let geo = SCNCylinder(radius: 0.2, height: CGFloat(hg))
-        
-        geo.materials.first?.diffuse.contents = UIColor.black
-        
-        let geoNode = SCNNode(geometry: geo)
-        geoNode.position = mid
-        
+        let mid1 = atomes.0.pos / 4 + 3 * atomes.1.pos / 4
+        let geo1 = SCNCylinder(radius: 0.2, height: CGFloat(hg/2.0))
+        geo1.materials.first?.diffuse.contents = self.AtomeColor[atomes.1.type.rawValue] ?? self.AtomeColor["Other"]
+        let geoNode1 = SCNNode(geometry: geo1)
+        geoNode1.position = mid1
         
         let axis = SCNVector3.cross(SCNVector3(x: 0 , y : 1, z : 0), objectif).normalized()
         let angle = SCNVector3.angle(SCNVector3(x: 0 , y : 1, z : 0), objectif)
         
         if angle != nil, axis != nil{
-            geoNode.rotation = SCNVector4(axis!, angle!)
+            geoNode0.rotation = SCNVector4(axis!, angle!)
+            geoNode1.rotation = SCNVector4(axis!, angle!)
         }
         
-        gameScene?.rootNode.addChildNode(geoNode)
+        gameScene?.rootNode.addChildNode(geoNode0)
+        gameScene?.rootNode.addChildNode(geoNode1)
         
     }
     
