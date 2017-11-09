@@ -51,17 +51,17 @@ class RenderManager: NSObject {
     
     func print_ball(_ withHydrogene : Bool = true){
         clear_scene()
-        for at in (dataManager?.atomes)!{
+        for at in DataManager.atomes{
             if withHydrogene == false && at.value.type == .H{
                 continue
             }
             self.displayAtome(atome: at.value)
         }
-        for li in (dataManager?.liaisons)!{
-            if withHydrogene == false && (dataManager?.atomes[li.0]?.type == .H || dataManager?.atomes[li.1]?.type == .H){
+        for li in DataManager.liaisons{
+            if withHydrogene == false && (DataManager.atomes[li.0]?.type == .H || DataManager.atomes[li.1]?.type == .H){
                 continue
             }
-            self.displayLiaison(atomes: ((dataManager?.atomes[li.0])!,  (dataManager?.atomes[li.1])!))
+            self.displayLiaison(atomes: (DataManager.atomes[li.0]!,  DataManager.atomes[li.1]!))
         }
     }
     

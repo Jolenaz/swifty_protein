@@ -17,8 +17,4 @@ class ParserManager: NSObject {
         dataManager = DataManager()
     }
     
-    func getLigand(idL : String){
-        dataManager.addAtome(newAtome: <#T##Atome#>, ind: <#T##Int#>)
-    }
-    
 }

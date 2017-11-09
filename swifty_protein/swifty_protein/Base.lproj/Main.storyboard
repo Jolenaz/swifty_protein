@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-Fk-zbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3511" y="227"/>
+            <point key="canvasLocation" x="3626" y="153"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="XDu-WS-EC2">
@@ -127,12 +127,56 @@
                     <connections>
                         <outlet property="orLabel" destination="z4l-EE-tlE" id="wTX-eR-dWo"/>
                         <outlet property="touchIdButton" destination="aFe-Kq-ucS" id="fFt-5b-Okm"/>
-                        <segue destination="bca-f1-9GM" kind="show" identifier="goScene" id="fym-Lg-JB1"/>
+                        <segue destination="2hR-KE-akW" kind="show" identifier="goList" id="DGP-UL-NfB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXz-AH-hKE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="166.8665667166417"/>
+            <point key="canvasLocation" x="2086" y="167"/>
+        </scene>
+        <!--List View Controller-->
+        <scene sceneID="wJh-d6-ADU">
+            <objects>
+                <viewController id="2hR-KE-akW" customClass="ListViewController" customModule="swifty_protein" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wln-Qj-mVW"/>
+                        <viewControllerLayoutGuide type="bottom" id="arn-nx-xyN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SdS-oL-WBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rXs-qc-Cag">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ligandCell" id="FSQ-Zd-Zo0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FSQ-Zd-Zo0" id="CIY-lE-Db6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="centerX" secondItem="SdS-oL-WBX" secondAttribute="centerX" id="1do-Tj-0P8"/>
+                            <constraint firstItem="arn-nx-xyN" firstAttribute="top" secondItem="rXs-qc-Cag" secondAttribute="bottom" id="Soh-eW-IOo"/>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="width" secondItem="SdS-oL-WBX" secondAttribute="width" id="WA0-Av-Pcc"/>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="top" secondItem="SdS-oL-WBX" secondAttribute="top" id="pAk-gt-HVN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ligandList" destination="rXs-qc-Cag" id="wNl-as-3Oe"/>
+                        <segue destination="bca-f1-9GM" kind="show" id="NXL-na-K2p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Z7-D5-gv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2863" y="232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cl0-Mm-1ah">

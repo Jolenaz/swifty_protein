@@ -22,7 +22,7 @@ class LogViewController: UIViewController {
             (success, error) in
             if success{
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "goScene", sender: nil)
+                    self.performSegue(withIdentifier: "goList", sender: nil)
                 }
             }
             else{
@@ -37,7 +37,7 @@ class LogViewController: UIViewController {
             (success, error) in
             if success{
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "goScene", sender: nil)
+                    self.performSegue(withIdentifier: "goList", sender: nil)
                 }
             }
             else{

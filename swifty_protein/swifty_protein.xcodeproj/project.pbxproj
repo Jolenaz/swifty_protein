@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1049269D1FB4B372004BC6BE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049269C1FB4B372004BC6BE /* ListViewController.swift */; };
+		1049269F1FB4BA22004BC6BE /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1049269E1FB4BA22004BC6BE /* ligands.txt */; };
 		109B94D41FB2F4CB003CDDEE /* Vector3Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */; };
 		109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B94D51FB34003003CDDEE /* AtomeNode.swift */; };
 		109B94D81FB34CEB003CDDEE /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B94D71FB34CEB003CDDEE /* LogViewController.swift */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		0599872A5955BB15F8743778 /* Pods-swifty_protein.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty_protein.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swifty_protein/Pods-swifty_protein.debug.xcconfig"; sourceTree = "<group>"; };
+		1049269C1FB4B372004BC6BE /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		1049269E1FB4BA22004BC6BE /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
 		109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3Operator.swift; sourceTree = "<group>"; };
 		109B94D51FB34003003CDDEE /* AtomeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomeNode.swift; sourceTree = "<group>"; };
 		109B94D71FB34CEB003CDDEE /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +91,9 @@
 				10C6E6771FB1B65E00B05592 /* RenderManager.swift */,
 				109B94D71FB34CEB003CDDEE /* LogViewController.swift */,
 				109B94D51FB34003003CDDEE /* AtomeNode.swift */,
+				1049269C1FB4B372004BC6BE /* ListViewController.swift */,
 				10C6E67B1FB1CF2900B05592 /* Atome.swift */,
+				1049269E1FB4BA22004BC6BE /* ligands.txt */,
 				10C6E6791FB1CF0C00B05592 /* DataManager.swift */,
 				10C6E66C1FB1AF4900B05592 /* LaunchScreen.storyboard */,
 				10C6E66F1FB1AF4900B05592 /* Info.plist */,
@@ -175,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C6E6641FB1AF4900B05592 /* art.scnassets in Resources */,
+				1049269F1FB4BA22004BC6BE /* ligands.txt in Resources */,
 				10C6E66E1FB1AF4900B05592 /* LaunchScreen.storyboard in Resources */,
 				10C6E66B1FB1AF4900B05592 /* Assets.xcassets in Resources */,
 				10C6E6691FB1AF4900B05592 /* Main.storyboard in Resources */,
@@ -252,6 +259,7 @@
 				10C6E6761FB1B60800B05592 /* ParserManager.swift in Sources */,
 				10C6E67C1FB1CF2900B05592 /* Atome.swift in Sources */,
 				109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */,
+				1049269D1FB4B372004BC6BE /* ListViewController.swift in Sources */,
 				10C6E6621FB1AF4900B05592 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
