@@ -49,11 +49,18 @@ class RenderManager: NSObject {
         gameScene?.rootNode.addChildNode(cameraNode!)
     }
     
-    func print_ball(){
+    func print_ball(_ withHydrogene : Bool = true){
+        clear_scene()
         for at in (dataManager?.atomes)!{
+            if withHydrogene == false && at.value.type == .H{
+                continue
+            }
             self.displayAtome(atome: at.value)
         }
         for li in (dataManager?.liaisons)!{
+            if withHydrogene == false && (dataManager?.atomes[li.0]?.type == .H || dataManager?.atomes[li.1]?.type == .H){
+                continue
+            }
             self.displayLiaison(atomes: ((dataManager?.atomes[li.0])!,  (dataManager?.atomes[li.1])!))
         }
     }

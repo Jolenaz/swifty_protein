@@ -24,23 +24,32 @@ class Atome: NSObject {
         case Other
     }
     
+    var name : String
     var pos : SCNVector3
     var type : kind
     
-    
-    init(pos : SCNVector3, type : kind) {
+    convenience init(pos : SCNVector3, type : kind, name : String) {
         self.pos = pos
         self.type = type
+        self.name = name
     }
     
-    init(pos : SCNVector3) {
+    convenience init(pos : SCNVector3, type : kind) {
+        self.pos = pos
+        self.type = type
+        self.name = ""
+    }
+    
+    convenience init(pos : SCNVector3) {
         self.pos = pos
         self.type = .Other
+        self.name = ""
     }
     
     override init() {
         self.pos = SCNVector3Zero
         self.type = .Other
+        self.name = ""
     }
     
 }

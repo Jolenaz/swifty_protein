@@ -14,10 +14,14 @@ class GameViewController: UIViewController {
 
     var renderManager : RenderManager?
     var dataManager : DataManager?
+    
+    var withH : Bool = true
+    
     @IBOutlet weak var gameView: SCNView!
     
     @IBAction func testButton(_ sender: UIButton) {
-        self.renderManager?.print_ball()
+        withH = !withH
+        self.renderManager?.print_ball(withH)
     }
     
     override func viewDidLoad() {
@@ -36,6 +40,8 @@ class GameViewController: UIViewController {
         self.dataManager?.addLiaison(newLiaison: (1,2))
         self.dataManager?.addLiaison(newLiaison: (1,3))
         self.dataManager?.addLiaison(newLiaison: (1,2))
+        
+        self.renderManager?.print_ball()
     }
     
     
