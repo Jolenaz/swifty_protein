@@ -10,11 +10,14 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let liganFile = "ligands.txt"
     
     @IBOutlet weak var ligandList: UITableView!
 
-    var ligands : [String] = []
+    var ligands : [String] = []{
+        didSet{
+            self.ligandList.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +35,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return ligands.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ligandCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ligandCell", for: indexPath) as! ListLigandCell
+        cell.name = ligands[indexPath.row]
         return cell
     }
     
@@ -48,9 +52,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.ligands = text.components(separatedBy: "\n")
         }catch{
             print (error)
-        }
-        print (self.ligands)
-        
+        }        
     }
     
     
