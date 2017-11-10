@@ -50,6 +50,8 @@ class LogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showTouchId()
+        let parse = ParserManager()
+        parse.getLigand(nameSearchLigand: "011")
 
         // Do any additional setup after loading the view.
     }
