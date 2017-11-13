@@ -18,22 +18,50 @@ class ParserManager: NSObject {
 
     var dataManager : DataManager
     
-    func regexMatch (string : String, re : String) -> String {
-        
-        var result : String?
-        
+    func regexMatchForLiaison (string : String, re : String) -> [(Int, Int)] {
+        var liaison : (String, String) = ("0", "1")
+        var liaisons : [(Int, Int)] = [((Int(liaison.0))!, (Int(liaison.1))!)]
         do {
             let regex = try NSRegularExpression(pattern: re)
-            let matches = regex.matches(in: string, range: NSRange(location: 0, length: string.characters.count))
-            for match in matches {
-                result = (string as NSString).substring(with: match.rangeAt(1))
+            
+            let nsString = string as NSString
+            let results = regex.matches(in: string, range: NSRange(location: 0, length: nsString.length))
+            let resultMatch = results.map { nsString.substring(with: $0.range)}
+            if !resultMatch.isEmpty {
+                let numOfMatch = resultMatch.count
+                liaison.0 = resultMatch[0]
+                var i : Int = 1
+                while i < numOfMatch {
+                    liaison.1 = resultMatch[i]
+                    i += 1
+                    if (liaison.1 != "") {
+                        liaisons.append(((Int(liaison.0))!, (Int(liaison.1))!))
+                    }
+                }
+            }
+        } catch {
+            print ("error")
+            //add popUp error
+        }
+        return liaisons
+    }
+    
+    func regexMatchForAtom (string : String, re : String, indexMatch: Int) -> String {
+        var result : String?
+        do {
+            let regex = try NSRegularExpression(pattern: re)
+            let nsString = string as NSString
+            let results = regex.matches(in: string, range: NSRange(location: 0, length: nsString.length))
+            let resultMatch = results.map { nsString.substring(with: $0.range)}
+            if !resultMatch.isEmpty {
+                result = resultMatch[indexMatch]
             }
         } catch {
             print ("error")
             result = "error"
 //            add popUp error
         }
-        return result!
+        return result ?? "error"
     }
     
     
@@ -51,15 +79,32 @@ class ParserManager: NSObject {
                     let infoLigand = try String(contentsOf: destURL, encoding: .utf8)
                     let infoTxt = infoLigand.components(separatedBy: .newlines)
                     for elem in infoTxt {
-                        let typeObj = self.regexMatch(string: elem, re: "^((ATOM)|(CONECT))")
+                        let typeObj = self.regexMatchForAtom(string: elem, re: "^((ATOM)|(CONECT))", indexMatch: 0)
                         if typeObj == "ATOM" {
-                            let atom : Atome
-//                        } else if typeObj == "CONECT" {
-//                            
-//                        } else {
-//                            print ("error")
+                            print ("create Atom ()")
+                            let atom = Atome()
+                            atom.name = self.regexMatchForAtom(string: elem, re: "[A-Z]+[\\d]*", indexMatch: 1)
+                            atom.pos.x = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 0))!
+                            atom.pos.y = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 1))!
+                            atom.pos.z = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 2))!
+                            atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0))!
+                            let indAtom = Int(self.regexMatchForAtom(string: elem, re: "(\\d{1,3})", indexMatch: 0))!
+                            self.dataManager.addAtome(newAtome: atom, ind: indAtom)
+//                            print (atom.name, atom.pos, atom.type)
+                        } else if typeObj == "CONECT" {
+                            print ("create Liaison")
+                            let liaisons : [(Int, Int)]
+                            liaisons = self.regexMatchForLiaison(string: elem, re: "(\\d{1,3})")
+//                            print (liaisons)
+                            var i = 1
+                            while i < liaisons.count {
+                                print ("New liaison = ",liaisons[i])
+                                self.dataManager.addLiaison(newLiaison: liaisons[i])
+                                i = i + 1
+                            }
+                        }  else {
+                                print ("END")
                         }
-//
                     }
                 }
                 catch {
