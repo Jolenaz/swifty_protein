@@ -88,7 +88,7 @@ class ParserManager: NSObject {
                             atom.pos.x = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 0))!
                             atom.pos.y = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 1))!
                             atom.pos.z = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 2))!
-                            atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0))!
+                            atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0)) ?? Atome.kind.Other
                             let indAtom = Int(self.regexMatchForAtom(string: elem, re: "(\\d{1,3})", indexMatch: 0))!
                             self.dataManager.addAtome(newAtome: atom, ind: indAtom)
 //                            print (atom.name, atom.pos, atom.type)
@@ -105,12 +105,6 @@ class ParserManager: NSObject {
                             }
                         }  else {
                                 print ("END")
-                        }
-                    }
-                    //travail fini
-                    if self.renderManager != nil{
-                        DispatchQueue.main.async {
-                            self.renderManager!.print_ball()
                         }
                     }
                 }

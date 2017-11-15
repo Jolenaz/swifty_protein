@@ -67,7 +67,7 @@ class RenderManager: NSObject {
     
     func displayAtome(atome : Atome){
 
-        let geo = SCNSphere(radius: 1)
+        let geo = SCNSphere(radius: 0.1)
         geo.materials.first?.diffuse.contents = self.AtomeColor[atome.type.rawValue] ?? self.AtomeColor["Other"]
         let geoNode = AtomeNode(geometry: geo)
         geoNode.atome = atome
@@ -88,13 +88,13 @@ class RenderManager: NSObject {
         }
         
         let mid0 = 3 * atomes.0.pos / 4 + atomes.1.pos / 4
-        let geo0 = SCNCylinder(radius: 0.2, height: CGFloat(hg/2.0))
+        let geo0 = SCNCylinder(radius: 0.05, height: CGFloat(hg/2.0))
         geo0.materials.first?.diffuse.contents = self.AtomeColor[atomes.0.type.rawValue] ?? self.AtomeColor["Other"]
         let geoNode0 = SCNNode(geometry: geo0)
         geoNode0.position = mid0
         
         let mid1 = atomes.0.pos / 4 + 3 * atomes.1.pos / 4
-        let geo1 = SCNCylinder(radius: 0.2, height: CGFloat(hg/2.0))
+        let geo1 = SCNCylinder(radius: 0.05, height: CGFloat(hg/2.0))
         geo1.materials.first?.diffuse.contents = self.AtomeColor[atomes.1.type.rawValue] ?? self.AtomeColor["Other"]
         let geoNode1 = SCNNode(geometry: geo1)
         geoNode1.position = mid1

@@ -35,6 +35,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataManager.atomes = [:]
+        DataManager.liaisons = []
         self.parser.renderManager = self.renderManager
         self.parser.getLigand(nameSearchLigand: (self.ligandName ?? "a girl as no name"))
         self.renderManager = RenderManager(view: self.gameView)
