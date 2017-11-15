@@ -17,6 +17,7 @@ import Alamofire
 class ParserManager: NSObject {
 
     var dataManager : DataManager
+    var renderManager : RenderManager?
     
     func regexMatchForLiaison (string : String, re : String) -> [(Int, Int)] {
         var liaison : (String, String) = ("0", "1")
@@ -104,6 +105,12 @@ class ParserManager: NSObject {
                             }
                         }  else {
                                 print ("END")
+                        }
+                    }
+                    //travail fini
+                    if self.renderManager != nil{
+                        DispatchQueue.main.async {
+                            self.renderManager!.print_ball()
                         }
                     }
                 }

@@ -19,6 +19,22 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    var selectedLigand : Int?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goGame"{
+            if let dest = segue.destination as? GameViewController{
+                dest.ligandName = ligands[self.selectedLigand ?? 0]
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedLigand = indexPath.row
+        performSegue(withIdentifier: "goGame", sender: "")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
