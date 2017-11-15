@@ -36,25 +36,38 @@
                                     <action selector="testButton:" destination="bca-f1-9GM" eventType="touchUpInside" id="qyH-GU-P4D"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akg-59-nbt">
+                                <rect key="frame" x="0.0" y="588" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FZx-SP-uOR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="width" secondItem="zQF-gx-5Bn" secondAttribute="width" id="Byf-SA-UEm"/>
+                            <constraint firstItem="akg-59-nbt" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="KDt-T1-FGy"/>
+                            <constraint firstItem="akg-59-nbt" firstAttribute="width" secondItem="zQF-gx-5Bn" secondAttribute="width" id="PVe-8b-YMs"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="centerY" secondItem="zQF-gx-5Bn" secondAttribute="centerY" id="ZaV-m9-ADy"/>
                             <constraint firstItem="zes-Eu-gex" firstAttribute="top" secondItem="COB-jQ-otz" secondAttribute="bottom" constant="20" id="d4T-xe-W3B"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="height" secondItem="zQF-gx-5Bn" secondAttribute="height" id="qji-OX-mWL"/>
+                            <constraint firstItem="COB-jQ-otz" firstAttribute="top" secondItem="akg-59-nbt" secondAttribute="bottom" constant="8" id="sS7-Ot-C6U"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="yoK-4d-Fqy"/>
                             <constraint firstItem="COB-jQ-otz" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="zmE-kZ-eWo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n8X-Ak-Df3"/>
                     <connections>
+                        <outlet property="atomName" destination="akg-59-nbt" id="oHs-FP-jEE"/>
                         <outlet property="gameView" destination="sIS-jd-qeJ" id="Omt-yj-mX0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-Fk-zbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3655" y="149"/>
+            <point key="canvasLocation" x="3653.5999999999999" y="148.87556221889056"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="XDu-WS-EC2">

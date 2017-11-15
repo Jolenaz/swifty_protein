@@ -82,7 +82,7 @@ class ParserManager: NSObject {
                     for elem in infoTxt {
                         let typeObj = self.regexMatchForAtom(string: elem, re: "^((ATOM)|(CONECT))", indexMatch: 0)
                         if typeObj == "ATOM" {
-                            print ("create Atom ()")
+                            //print ("create Atom ()")
                             let atom = Atome()
                             atom.name = self.regexMatchForAtom(string: elem, re: "[A-Z]+[\\d]*", indexMatch: 1)
                             atom.pos.x = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d\\.\\d{3})", indexMatch: 0))!
@@ -93,18 +93,18 @@ class ParserManager: NSObject {
                             self.dataManager.addAtome(newAtome: atom, ind: indAtom)
 //                            print (atom.name, atom.pos, atom.type)
                         } else if typeObj == "CONECT" {
-                            print ("create Liaison")
+                            //print ("create Liaison")
                             let liaisons : [(Int, Int)]
                             liaisons = self.regexMatchForLiaison(string: elem, re: "(\\d{1,3})")
 //                            print (liaisons)
                             var i = 1
                             while i < liaisons.count {
-                                print ("New liaison = ",liaisons[i])
+                                //print ("New liaison = ",liaisons[i])
                                 self.dataManager.addLiaison(newLiaison: liaisons[i])
                                 i = i + 1
                             }
                         }  else {
-                                print ("END")
+                                //print ("END")
                         }
                     }
                 }
@@ -112,6 +112,12 @@ class ParserManager: NSObject {
                     print("error")
                 }
             }
+            if (self.renderManager != nil){
+                print ("can work here")
+            }else{
+                print ("cannot work here")
+            }
+            
         }
     }
     

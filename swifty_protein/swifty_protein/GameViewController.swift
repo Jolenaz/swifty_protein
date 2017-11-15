@@ -13,7 +13,6 @@ import SceneKit
 class GameViewController: UIViewController {
 
     var renderManager : RenderManager?
-    var dataManager : DataManager?
     
     let parser = ParserManager()
     
@@ -23,6 +22,7 @@ class GameViewController: UIViewController {
             
         }
     }
+    @IBOutlet weak var atomName: UILabel!
     
     var withH : Bool = true
     
@@ -35,28 +35,14 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.atomName.text = ""
         DataManager.atomes = [:]
         DataManager.liaisons = []
+        self.renderManager = RenderManager(view: self.gameView)
+        self.renderManager?.initWorld()
         self.parser.renderManager = self.renderManager
         self.parser.getLigand(nameSearchLigand: (self.ligandName ?? "a girl as no name"))
-        self.renderManager = RenderManager(view: self.gameView)
-        self.dataManager = DataManager()
-        self.renderManager?.dataManager = self.dataManager
-        self.renderManager?.initWorld()
-        
-//        let a1 = Atome(pos: SCNVector3(x:-2, y:0, z:-4), type : .C)
-//        let a2 = Atome(pos: SCNVector3(x:2, y:2, z:0), type : .H)
-//
-//        self.dataManager?.addAtome(newAtome: a1, ind: 1)
-//        self.dataManager?.addAtome(newAtome: a2, ind: 2)
-//
-//        self.dataManager?.addLiaison(newLiaison: (1,2))
-//        self.dataManager?.addLiaison(newLiaison: (1,3))
-//        self.dataManager?.addLiaison(newLiaison: (1,2))
-        
-      //  self.renderManager?.print_ball()
-        
-     
+
     }
     
     
@@ -68,10 +54,13 @@ class GameViewController: UIViewController {
         if let hitObject = hitList.first{
             if let node = hitObject.node as? AtomeNode{
                 self.renderManager?.highLightAtome(node: node)
+                self.atomName.text = node.atome?.name
             }else{
+                self.atomName.text = ""
                 self.renderManager?.highLightAtome(node: nil)
             }
         }else{
+            self.atomName.text = ""
             self.renderManager?.highLightAtome(node: nil)
         }
     }

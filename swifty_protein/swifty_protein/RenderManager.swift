@@ -21,8 +21,6 @@ class RenderManager: NSObject {
         "Cl" : UIColor(rgb : 0x00bb00),
         "Other" : UIColor(rgb : 0xff1493)]
     
-    var dataManager : DataManager?
-    
     var gameView : SCNView?
     var gameScene : SCNScene?
     var cameraNode : SCNNode?
@@ -31,7 +29,7 @@ class RenderManager: NSObject {
     
     init(view : SCNView) {
         self.gameView = view
-        let geo = SCNSphere(radius: 1.2)
+        let geo = SCNSphere(radius: 0.7)
         geo.materials.first?.diffuse.contents = UIColor.blue
         self.selectedNode = SCNNode(geometry : geo)
         self.selectedNode.opacity = 0.2
@@ -67,7 +65,7 @@ class RenderManager: NSObject {
     
     func displayAtome(atome : Atome){
 
-        let geo = SCNSphere(radius: 0.1)
+        let geo = SCNSphere(radius: 0.5)
         geo.materials.first?.diffuse.contents = self.AtomeColor[atome.type.rawValue] ?? self.AtomeColor["Other"]
         let geoNode = AtomeNode(geometry: geo)
         geoNode.atome = atome
