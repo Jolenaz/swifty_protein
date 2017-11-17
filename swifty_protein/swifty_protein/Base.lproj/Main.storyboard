@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -167,17 +168,20 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FSQ-Zd-Zo0" id="CIY-lE-Db6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-2X-ab7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-2X-ab7">
                                                     <rect key="frame" x="8" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sE1-2X-ab7" firstAttribute="leading" secondItem="CIY-lE-Db6" secondAttribute="leadingMargin" constant="-8" id="Vze-Uw-dvd"/>
+                                                <constraint firstItem="sE1-2X-ab7" firstAttribute="bottom" secondItem="CIY-lE-Db6" secondAttribute="bottomMargin" id="roN-GS-ZGe"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="sE1-2X-ab7" id="zaU-vC-QOy"/>
@@ -188,10 +192,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rXs-qc-Cag" firstAttribute="centerX" secondItem="SdS-oL-WBX" secondAttribute="centerX" id="1do-Tj-0P8"/>
-                            <constraint firstItem="arn-nx-xyN" firstAttribute="top" secondItem="rXs-qc-Cag" secondAttribute="bottom" id="Soh-eW-IOo"/>
-                            <constraint firstItem="rXs-qc-Cag" firstAttribute="width" secondItem="SdS-oL-WBX" secondAttribute="width" id="WA0-Av-Pcc"/>
-                            <constraint firstItem="rXs-qc-Cag" firstAttribute="top" secondItem="SdS-oL-WBX" secondAttribute="top" id="pAk-gt-HVN"/>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="leading" secondItem="SdS-oL-WBX" secondAttribute="leading" id="4my-kV-Nhm"/>
+                            <constraint firstAttribute="trailing" secondItem="rXs-qc-Cag" secondAttribute="trailing" id="Gut-GN-7E9"/>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="bottom" secondItem="arn-nx-xyN" secondAttribute="top" id="TYw-3X-trq"/>
+                            <constraint firstItem="rXs-qc-Cag" firstAttribute="top" secondItem="SdS-oL-WBX" secondAttribute="top" id="nYq-cU-CCD"/>
                         </constraints>
                     </view>
                     <connections>
@@ -201,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Z7-D5-gv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2943" y="224"/>
+            <point key="canvasLocation" x="2941.5999999999999" y="223.53823088455775"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cl0-Mm-1ah">
