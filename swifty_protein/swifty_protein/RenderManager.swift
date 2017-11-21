@@ -43,12 +43,13 @@ class RenderManager: NSObject {
         gameView?.isPlaying = true
         cameraNode = SCNNode()
         cameraNode?.camera = SCNCamera()
-        cameraNode?.position = SCNVector3(x: 0, y:5, z: 30)
+        cameraNode?.position = SCNVector3(x: 0, y:0, z: 30)
         gameScene?.rootNode.addChildNode(cameraNode!)
     }
     
     func print_ball(_ withHydrogene : Bool ,_ type : Int){
         clear_scene()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         for at in DataManager.atomes{
             if withHydrogene == false && at.value.type == .H{
                 continue
