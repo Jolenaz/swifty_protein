@@ -18,10 +18,11 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var displayStyle: UISegmentedControl!
     
-    @IBAction func infoButton(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "goInfo", sender: "")
-    }
+
     
+    @IBAction func infoButton(_ sender: UIButton) {
+            performSegue(withIdentifier: "goInfo", sender: "")
+    }
     
     
     @IBAction func displayStyleButton(_ sender: UISegmentedControl) {
