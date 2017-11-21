@@ -91,15 +91,11 @@ class ParserManager: NSObject {
                             atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0)) ?? Atome.kind.Other
                             let indAtom = Int(self.regexMatchForAtom(string: elem, re: "(\\d{1,3})", indexMatch: 0))!
                             self.dataManager.addAtome(newAtome: atom, ind: indAtom)
-//                            print (atom.name, atom.pos)
                         } else if typeObj == "CONECT" {
-                            //print ("create Liaison")
                             let liaisons : [(Int, Int)]
                             liaisons = self.regexMatchForLiaison(string: elem, re: "(\\d{1,3})")
-//                            print (liaisons)
                             var i = 1
                             while i < liaisons.count {
-//                                print ("New liaison = ",liaisons[i])
                                 self.dataManager.addLiaison(newLiaison: liaisons[i])
                                 i = i + 1
                             }
@@ -118,10 +114,9 @@ class ParserManager: NSObject {
                 }
             }else{
             }
-            
         }
     }
-    
+
     override init() {
         dataManager = DataManager()
     }

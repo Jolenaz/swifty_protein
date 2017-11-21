@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COB-jQ-otz">
-                                <rect key="frame" x="116" y="573" width="143" height="30"/>
+                                <rect key="frame" x="149.5" y="573" width="76" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="DnR-Bv-Zes"/>
                                     <constraint firstAttribute="height" constant="30" id="bOV-EB-Qzm"/>
@@ -65,7 +65,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9sk-j1-6fx" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" id="2MA-yO-mCg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="COB-jQ-otz" secondAttribute="trailing" constant="100" id="6p7-cH-21o"/>
                             <constraint firstAttribute="trailing" secondItem="sIS-jd-qeJ" secondAttribute="trailing" id="7o8-Fk-H6B"/>
                             <constraint firstItem="akg-59-nbt" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="KDt-T1-FGy"/>
                             <constraint firstItem="akg-59-nbt" firstAttribute="top" secondItem="9sk-j1-6fx" secondAttribute="bottom" constant="8" id="PO5-Vu-9qN"/>
@@ -74,7 +73,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9sk-j1-6fx" secondAttribute="trailing" id="cwN-zx-HIS"/>
                             <constraint firstItem="zes-Eu-gex" firstAttribute="top" secondItem="COB-jQ-otz" secondAttribute="bottom" constant="20" id="d4T-xe-W3B"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leading" id="ngi-tk-1Pn"/>
-                            <constraint firstItem="COB-jQ-otz" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" constant="100" id="o0D-RB-zIe"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" id="p1e-rB-r42"/>
                             <constraint firstItem="COB-jQ-otz" firstAttribute="top" secondItem="akg-59-nbt" secondAttribute="bottom" constant="8" id="sS7-Ot-C6U"/>
                             <constraint firstItem="COB-jQ-otz" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="zmE-kZ-eWo"/>
@@ -84,7 +82,7 @@
                     <navigationItem key="navigationItem" title="Title" id="0VE-DY-O7t">
                         <barButtonItem key="rightBarButtonItem" title="Info" id="iNX-Xo-IgY" userLabel="Info">
                             <connections>
-                                <segue destination="d77-he-a3d" kind="show" identifier="goInfo" id="ond-ad-McS"/>
+                                <action selector="infoButton:" destination="bca-f1-9GM" id="VOf-Jn-c82"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,6 +93,7 @@
                         <outlet property="displayStyle" destination="9sk-j1-6fx" id="R20-IR-w14"/>
                         <outlet property="gameView" destination="sIS-jd-qeJ" id="Omt-yj-mX0"/>
                         <outlet property="navTitle" destination="0VE-DY-O7t" id="kC3-W3-tSz"/>
+                        <segue destination="d77-he-a3d" kind="show" identifier="goInfo" id="L3e-Cw-z32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-Fk-zbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2p3-2r-YyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4484" y="149"/>
+            <point key="canvasLocation" x="4438" y="224"/>
         </scene>
         <!--Log View Controller-->
         <scene sceneID="XDu-WS-EC2">
@@ -294,11 +293,9 @@
                             <constraint firstItem="z4l-EE-tlE" firstAttribute="top" secondItem="yG6-7J-Tya" secondAttribute="bottom" constant="24" id="9EL-KB-cii"/>
                             <constraint firstItem="yG6-7J-Tya" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="9sx-pV-sVF"/>
                             <constraint firstItem="fNB-Gb-TXp" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="btq-o2-PQn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fNB-Gb-TXp" secondAttribute="trailing" constant="85" id="hQA-tw-njX"/>
                             <constraint firstItem="z4l-EE-tlE" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="kNk-hd-mVC"/>
                             <constraint firstItem="aFe-Kq-ucS" firstAttribute="centerY" secondItem="ksH-oq-tIt" secondAttribute="centerY" multiplier="1.5" id="qKV-PO-p0E"/>
                             <constraint firstItem="aFe-Kq-ucS" firstAttribute="centerX" secondItem="ksH-oq-tIt" secondAttribute="centerX" id="uNl-dB-2KB"/>
-                            <constraint firstItem="fNB-Gb-TXp" firstAttribute="leading" secondItem="ksH-oq-tIt" secondAttribute="leadingMargin" constant="85" id="utn-n2-n6X"/>
                             <constraint firstItem="fNB-Gb-TXp" firstAttribute="top" secondItem="Q0G-X0-sGR" secondAttribute="bottom" constant="8" id="vci-nm-74Y"/>
                         </constraints>
                     </view>
@@ -336,15 +333,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-2X-ab7">
-                                                    <rect key="frame" x="8" y="12" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-2X-ab7">
+                                                    <rect key="frame" x="8" y="12" width="359" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sE1-2X-ab7" firstAttribute="leading" secondItem="CIY-lE-Db6" secondAttribute="leadingMargin" constant="-8" id="Vze-Uw-dvd"/>
+                                                <constraint firstAttribute="trailing" secondItem="sE1-2X-ab7" secondAttribute="trailing" constant="8" id="OJH-vp-DYR"/>
+                                                <constraint firstItem="sE1-2X-ab7" firstAttribute="leading" secondItem="CIY-lE-Db6" secondAttribute="leading" constant="8" id="jnZ-2r-3SA"/>
                                                 <constraint firstItem="sE1-2X-ab7" firstAttribute="bottom" secondItem="CIY-lE-Db6" secondAttribute="bottomMargin" id="roN-GS-ZGe"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -15,12 +15,8 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
-    var ligandName : String?{
-        didSet{
-            print ("ok desu")
-        }
-    }
-    
+    var ligandName : String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -28,6 +24,7 @@ class InfoViewController: UIViewController {
         self.formulaLabel.text = "formula"
         self.typeLabel.text = "type"
         self.weightLabel.text = "weight"
+        getInfo(nameLigand:  self.ligandName ?? "")
         // Do any additional setup after loading the view.
     }
 
@@ -36,7 +33,9 @@ class InfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func getInfo(nameLigand: String) {
+//        <#function body#>
+    }
     /*
     // MARK: - Navigation
 

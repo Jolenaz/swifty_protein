@@ -18,6 +18,12 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var displayStyle: UISegmentedControl!
     
+    @IBAction func infoButton(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "goInfo", sender: "")
+    }
+    
+    
+    
     @IBAction func displayStyleButton(_ sender: UISegmentedControl) {
         self.renderManager?.print_ball(withH, displayStyle.selectedSegmentIndex)
     }
@@ -32,7 +38,7 @@ class GameViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.description == "goInfo"{
+        if segue.identifier == "goInfo"{
             if let dest = segue.destination as? InfoViewController{
                 dest.ligandName = self.ligandName
             }
