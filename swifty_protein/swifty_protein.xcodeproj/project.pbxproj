@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10035FA51FC4638100632993 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10035FA41FC4638100632993 /* InfoViewController.swift */; };
 		1049269D1FB4B372004BC6BE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049269C1FB4B372004BC6BE /* ListViewController.swift */; };
 		1049269F1FB4BA22004BC6BE /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1049269E1FB4BA22004BC6BE /* ligands.txt */; };
 		107389721FB5A01700D17D63 /* ListLigandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107389711FB5A01700D17D63 /* ListLigandCell.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0599872A5955BB15F8743778 /* Pods-swifty_protein.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty_protein.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swifty_protein/Pods-swifty_protein.debug.xcconfig"; sourceTree = "<group>"; };
+		10035FA41FC4638100632993 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		1049269C1FB4B372004BC6BE /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		1049269E1FB4BA22004BC6BE /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
 		107389711FB5A01700D17D63 /* ListLigandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLigandCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				109B94D31FB2F4CB003CDDEE /* Vector3Operator.swift */,
 				10C6E6771FB1B65E00B05592 /* RenderManager.swift */,
 				109B94D71FB34CEB003CDDEE /* LogViewController.swift */,
+				10035FA41FC4638100632993 /* InfoViewController.swift */,
 				109B94D51FB34003003CDDEE /* AtomeNode.swift */,
 				1049269C1FB4B372004BC6BE /* ListViewController.swift */,
 				107389711FB5A01700D17D63 /* ListLigandCell.swift */,
@@ -265,6 +268,7 @@
 				10C6E67C1FB1CF2900B05592 /* Atome.swift in Sources */,
 				109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */,
 				1049269D1FB4B372004BC6BE /* ListViewController.swift in Sources */,
+				10035FA51FC4638100632993 /* InfoViewController.swift in Sources */,
 				10C6E6621FB1AF4900B05592 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

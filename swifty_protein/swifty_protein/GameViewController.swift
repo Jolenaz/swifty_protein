@@ -22,12 +22,23 @@ class GameViewController: UIViewController {
         self.renderManager?.print_ball(withH, displayStyle.selectedSegmentIndex)
     }
     
+    @IBOutlet weak var navTitle: UINavigationItem!
+    
     var ligandName : String?{
         didSet{
             print(self.ligandName ?? "a girl as no name")
-            
+            self.navTitle.title = ligandName
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.description == "goInfo"{
+            if let dest = segue.destination as? InfoViewController{
+                dest.ligandName = self.ligandName
+            }
+        }
+    }
+    
     @IBOutlet weak var atomName: UILabel!
     
     var withH : Bool = true
