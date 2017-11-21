@@ -21,6 +21,27 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var selectedLigand : Int?
     
+    var filteredLigands = [String]()
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredLigands = self.ligands.filter({( ligand : String) -> Bool in
+            return ligand.contains(searchText)
+        })
+
+        self.ligandList.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goGame"{
             if let dest = segue.destination as? GameViewController{
@@ -41,6 +62,17 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.ligandList.delegate = self
         self.ligandList.dataSource = self
         self.loadList()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Ligand"
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+            navigationItem.titleView = searchController.searchBar
+        }
+        definesPresentationContext = true
         // Do any additional setup after loading the view.
     }
 
@@ -51,12 +83,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering() {
+            return filteredLigands.count
+        }
         return ligands.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ligandCell", for: indexPath) as! ListLigandCell
-        cell.name = ligands[indexPath.row]
+//        cell.name = ligands[indexPath.row]
+        if isFiltering() {
+          cell.name = filteredLigands[indexPath.row]
+        } else {
+            cell.name = ligands[indexPath.row]
+        }        
         return cell
     }
     
@@ -71,7 +111,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         }        
     }
     
-    
     /*
     // MARK: - Navigation
 
@@ -81,5 +120,12 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension ListViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }
