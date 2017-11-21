@@ -114,7 +114,7 @@ class ParserManager: NSObject {
             }
             if (self.renderManager != nil){
                 DispatchQueue.main.async {
-                    self.renderManager?.print_ball()
+                    self.renderManager?.print_ball(true, 0)
                 }
             }else{
             }

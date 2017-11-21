@@ -16,6 +16,12 @@ class GameViewController: UIViewController {
     
     let parser = ParserManager()
     
+    @IBOutlet weak var displayStyle: UISegmentedControl!
+    
+    @IBAction func displayStyleButton(_ sender: UISegmentedControl) {
+        self.renderManager?.print_ball(withH, displayStyle.selectedSegmentIndex)
+    }
+    
     var ligandName : String?{
         didSet{
             print(self.ligandName ?? "a girl as no name")
@@ -30,11 +36,12 @@ class GameViewController: UIViewController {
     
     @IBAction func testButton(_ sender: UIButton) {
         withH = !withH
-        self.renderManager?.print_ball(withH)
+        self.renderManager?.print_ball(withH, displayStyle.selectedSegmentIndex)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.atomName.text = ""
         DataManager.atomes = [:]
         DataManager.liaisons = []

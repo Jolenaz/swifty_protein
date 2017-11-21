@@ -29,7 +29,7 @@ class RenderManager: NSObject {
     
     init(view : SCNView) {
         self.gameView = view
-        let geo = SCNSphere(radius: 0.7)
+        let geo = SCNSphere(radius: 0.3)
         geo.materials.first?.diffuse.contents = UIColor.blue
         self.selectedNode = SCNNode(geometry : geo)
         self.selectedNode.opacity = 0.2
@@ -47,13 +47,13 @@ class RenderManager: NSObject {
         gameScene?.rootNode.addChildNode(cameraNode!)
     }
     
-    func print_ball(_ withHydrogene : Bool = true){
+    func print_ball(_ withHydrogene : Bool ,_ type : Int){
         clear_scene()
         for at in DataManager.atomes{
             if withHydrogene == false && at.value.type == .H{
                 continue
             }
-            self.displayAtome(atome: at.value)
+            self.displayAtome(atome: at.value, type)
         }
         for li in DataManager.liaisons{
             if withHydrogene == false && (DataManager.atomes[li.0]?.type == .H || DataManager.atomes[li.1]?.type == .H){
@@ -63,11 +63,20 @@ class RenderManager: NSObject {
         }
     }
     
-    func displayAtome(atome : Atome){
+    func displayAtome(atome : Atome,_ type : Int){
 
-        let geo = SCNSphere(radius: 0.5)
-        geo.materials.first?.diffuse.contents = self.AtomeColor[atome.type.rawValue] ?? self.AtomeColor["Other"]
-        let geoNode = AtomeNode(geometry: geo)
+        var geo : SCNSphere?
+        
+        switch type{
+        case 2:
+            geo = SCNSphere(radius: 0)
+        case 1:
+            geo = SCNSphere(radius: 1)
+        default:
+            geo = SCNSphere(radius: 0.2)
+        }
+        geo!.materials.first?.diffuse.contents = self.AtomeColor[atome.type.rawValue] ?? self.AtomeColor["Other"]
+        let geoNode = AtomeNode(geometry: geo!)
         geoNode.atome = atome
         
         geoNode.position = atome.pos
