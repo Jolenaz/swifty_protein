@@ -22,10 +22,10 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.nameLabel.text = "name"
-        self.formulaLabel.text = "formula"
-        self.typeLabel.text = "type"
-        self.weightLabel.text = "weight"
+        self.nameLabel.text = ""
+        self.formulaLabel.text = ""
+        self.typeLabel.text = ""
+        self.weightLabel.text = ""
         getInfo(nameLigand:  self.ligandName ?? "")
         // Do any additional setup after loading the view.
     }
@@ -34,37 +34,39 @@ class InfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func getInfo(nameLigand: String) {
+        
         Alamofire.request("https://files.rcsb.org/ligands/view/\(nameLigand).cif").response { response in
-//            print("Request: \(String(describing: response.request))")
-//            print("Error: \(String(describing: response.error))")
-            
             if let data = response.data, let textData = String(data: data, encoding: .utf8) {
                 let infoTxt = textData.components(separatedBy: .newlines)
                 for elem in infoTxt {
-//                    let name  = self.infoByElem(str: elem, elem: "chem_comp.name")
-//                    print (name)
-//                    self.formulaLabel.text = self.infoByElem(str: elem, elem: "chem_comp.formula")
-//                    self.typeLabel.text = self.infoByElem(str: elem, elem: "chem_comp.type")
-//                    self.weightLabel.text = self.infoByElem(str: elem, elem: "chem_comp.formula_weight")
-                    let nameTmp = elem.range(of: "chem_comp.name")
-                    if nameTmp != nil {
+                    let nameTmp = elem.range(of: "chem_comp.name") // CHECK AVEC LE LIGAND 1SZ -> pb
+                    if nameTmp != nil && self.nameLabel.text == "" {
                         let nameArr = elem.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespacesAndNewlines)
-                        self.nameLabel.text = nameArr.last
+                        var name = nameArr.filter { $0 != ""}
+                        name.remove(at: 0)
+                        let joinName = name.joined(separator: " ")
+                        self.nameLabel.text = joinName.replacingOccurrences(of: "\"", with: "")
                     }
                     let formulaTmp = elem.range(of: "chem_comp.formula")
-                    if formulaTmp != nil {
+                    if formulaTmp != nil && self.formulaLabel.text == "" {
                         let formArr = elem.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespacesAndNewlines)
-                        self.formulaLabel.text = formArr.last
+                        var form = formArr.filter { $0 != ""}
+                        form.remove(at: 0)
+                        let joinForm = form.joined(separator: " ")
+                        self.formulaLabel.text = joinForm.replacingOccurrences(of: "\"", with: "")
                     }
                     let typeTmp = elem.range(of: "chem_comp.type")
-                    if typeTmp != nil {
+                    if typeTmp != nil && self.typeLabel.text == "" {
                         let typeArr = elem.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespacesAndNewlines)
-                        self.typeLabel.text = typeArr.last
+                        var type = typeArr.filter { $0 != ""}
+                        type.remove(at: 0)
+                        let joinType = type.joined(separator: " ")
+                        self.typeLabel.text = joinType.replacingOccurrences(of: "\"", with: "")
                     }
                     let weightTmp = elem.range(of: "chem_comp.formula_weight")
-                    if weightTmp != nil {
+                    if weightTmp != nil && self.weightLabel.text == "" {
                         let weightArr = elem.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespacesAndNewlines)
                         self.weightLabel.text = weightArr.last
                     }
