@@ -71,6 +71,7 @@ class InfoViewController: UIViewController {
                         self.weightLabel.text = weightArr.last
                     }
                 }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
     }

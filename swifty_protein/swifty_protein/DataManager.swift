@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SceneKit
 
 class DataManager: NSObject {
 
     static var atomes : [Int : Atome] = [:]
     static var liaisons : [(Int,Int)] = []
+    var centre : SCNVector3 = SCNVector3(Float(0.0))
     
     
     func addAtome(newAtome : Atome, ind : Int){
@@ -37,6 +39,18 @@ class DataManager: NSObject {
             return
         }
         DataManager.liaisons.append(newLiaison)
+    }
+    
+    func recenterAtome(){
+        for (_,at) in DataManager.atomes{
+            centre = centre + at.pos
+        }
+        centre = centre / Float(DataManager.atomes.count)
+        for i in 0...DataManager.atomes.count {
+            if let pos = DataManager.atomes[i]?.pos{
+                DataManager.atomes[i]!.pos = pos - centre
+            }
+        }
     }
 }
 

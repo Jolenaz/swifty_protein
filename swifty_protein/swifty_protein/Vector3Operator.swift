@@ -15,6 +15,7 @@ extension SCNVector3{
         return SCNVector3( x : right.x + left.x, y : right.y + left.y, z : right.z + left.z)
     }
     
+    
     static func - (left : SCNVector3, right : SCNVector3) -> SCNVector3{
         return SCNVector3( x : right.x - left.x, y : right.y - left.y, z : right.z - left.z)
     }
@@ -73,6 +74,11 @@ extension SCNVector3{
             return acosf(SCNVector3.dot(lf, rg))
         }
         return nil
+    }
+    init(_ fl : Float) {
+        self.x = fl
+        self.y = fl
+        self.z = fl
     }
     
 }
