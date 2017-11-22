@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     var renderManager : RenderManager?
     
     let parser = ParserManager()
+    let popup = PopUpManager()
     
     @IBOutlet weak var displayStyle: UISegmentedControl!
     
@@ -33,7 +34,7 @@ class GameViewController: UIViewController {
                 post.add(gameImage)
                 
                 self.present(post, animated: true, completion: nil)
-            } else{ print ("yout not connected to facebook") }
+            } else{ print ("yout not connected to facebook"); self.popup.displayPopup(code: 1) }
         }
         
         let actionTwo = UIAlertAction(title: "Share on Twitter", style: .default) { (action) in
@@ -44,7 +45,7 @@ class GameViewController: UIViewController {
                 post.add(gameImage)
                 
                 self.present(post, animated: true, completion: nil)
-            } else{ print ("yout not connected to twitter") }
+            } else{ print ("yout not connected to twitter"); self.popup.displayPopup(code: 1) }
         }
         
         let actionTree = UIAlertAction(title: "Share on Linkedin", style: .default) { (action) in
@@ -55,7 +56,7 @@ class GameViewController: UIViewController {
                 post.add(gameImage)
                 
                 self.present(post, animated: true, completion: nil)
-            } else{ print ("yout not connected to Linkedin") }
+            } else{ print ("yout not connected to Linkedin"); self.popup.displayPopup(code: 1) }
         }
         
         let actionFour = UIAlertAction(title: "Save on Library", style: .default) { (action) in
@@ -100,7 +101,7 @@ class GameViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.renderManager?.gameView?.pointOfView = nil
+       self.renderManager?.gameView?.pointOfView = nil
         
     }
     
