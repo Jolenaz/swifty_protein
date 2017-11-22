@@ -44,7 +44,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goGame"{
             if let dest = segue.destination as? GameViewController{
-                dest.ligandName = ligands[self.selectedLigand ?? 0]
+                if isFiltering(){
+                    dest.ligandName = filteredLigands[self.selectedLigand ?? 0]
+                }else{
+                    dest.ligandName = ligands[self.selectedLigand ?? 0]
+                }
             }
         }
     }
