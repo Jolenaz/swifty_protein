@@ -36,6 +36,7 @@ class RenderManager: NSObject {
     }
     
     func initWorld(){
+        
         gameView?.allowsCameraControl = true
         gameView?.autoenablesDefaultLighting = true
         gameScene = SCNScene()
@@ -130,7 +131,7 @@ class RenderManager: NSObject {
         
     }
     
-    private func clear_scene(){
+    func clear_scene(){
         gameScene?.rootNode.enumerateChildNodes{
             (child,smt) in
             child.removeFromParentNode()

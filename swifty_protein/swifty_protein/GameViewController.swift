@@ -96,6 +96,14 @@ class GameViewController: UIViewController {
         }
     }
     
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.renderManager?.gameView?.pointOfView = nil
+        
+    }
+    
     @IBOutlet weak var atomName: UILabel!
     
     var withH : Bool = true
@@ -157,6 +165,7 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
 
 }
 

@@ -70,11 +70,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="COB-jQ-otz" secondAttribute="trailingMargin" id="20U-Ri-NVm"/>
                             <constraint firstItem="9sk-j1-6fx" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" id="2MA-yO-mCg"/>
                             <constraint firstItem="COB-jQ-otz" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" id="6o6-D9-6sv"/>
                             <constraint firstAttribute="trailing" secondItem="sIS-jd-qeJ" secondAttribute="trailing" id="7o8-Fk-H6B"/>
                             <constraint firstItem="COB-jQ-otz" firstAttribute="width" secondItem="sIS-jd-qeJ" secondAttribute="width" multiplier="0.5" id="AAF-Tz-0yU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bGH-8F-Y0J" secondAttribute="trailing" id="EFB-rM-2MA"/>
+                            <constraint firstItem="bGH-8F-Y0J" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" id="ES4-8n-BFD"/>
                             <constraint firstItem="akg-59-nbt" firstAttribute="centerX" secondItem="zQF-gx-5Bn" secondAttribute="centerX" id="KDt-T1-FGy"/>
                             <constraint firstItem="bGH-8F-Y0J" firstAttribute="top" secondItem="akg-59-nbt" secondAttribute="bottom" constant="8" id="KHH-in-XMt"/>
                             <constraint firstItem="akg-59-nbt" firstAttribute="top" secondItem="9sk-j1-6fx" secondAttribute="bottom" constant="8" id="PO5-Vu-9qN"/>
@@ -108,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-Fk-zbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653.5999999999999" y="148.87556221889056"/>
+            <point key="canvasLocation" x="3705" y="167"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="JKt-xA-wSM">
@@ -340,7 +342,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FSQ-Zd-Zo0" id="CIY-lE-Db6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-2X-ab7">

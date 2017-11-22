@@ -9,7 +9,6 @@
 import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
     
     @IBOutlet weak var ligandList: UITableView!
 
