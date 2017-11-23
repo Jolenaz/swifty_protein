@@ -21,9 +21,20 @@ class RenderManager: NSObject {
         "Cl" : UIColor(rgb : 0x00bb00),
         "Other" : UIColor(rgb : 0xff1493)]
     
+    
     var gameView : SCNView?
     var gameScene : SCNScene?
     var cameraNode : SCNNode?
+    
+    var rotation : Bool = true{
+        didSet{
+            if rotation{
+                self.gameScene?.rootNode.runAction(SCNAction.repeatForever (SCNAction.rotateBy(x: 0.0, y: 3.14, z: 0.0, duration:5)))
+            }else{
+                self.gameScene?.rootNode.removeAllActions()
+            }
+        }
+    }
     
     var selectedNode : SCNNode
     
@@ -36,7 +47,6 @@ class RenderManager: NSObject {
     }
     
     func initWorld(){
-        
         gameView?.allowsCameraControl = true
         gameView?.autoenablesDefaultLighting = true
         gameScene = SCNScene()
@@ -46,6 +56,7 @@ class RenderManager: NSObject {
         cameraNode?.camera = SCNCamera()
         cameraNode?.position = SCNVector3(x: 0, y:0, z: 30)
         gameScene?.rootNode.addChildNode(cameraNode!)
+        self.gameScene?.rootNode.runAction(SCNAction.repeatForever (SCNAction.rotateBy(x: 0.0, y: 3.14, z: 0.0, duration:5)))
     }
     
     func print_ball(_ withHydrogene : Bool ,_ type : Int){

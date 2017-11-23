@@ -16,6 +16,10 @@ class GameViewController: UIViewController {
     var renderManager : RenderManager?
     
     @IBOutlet weak var rotationSwitch: UISwitch!
+    @IBAction func rotationButton(_ sender: UISwitch) {
+        self.renderManager?.rotation = !(self.renderManager?.rotation ?? false)
+    }
+    
     
     let parser = ParserManager()
     let popup = PopUpManager()

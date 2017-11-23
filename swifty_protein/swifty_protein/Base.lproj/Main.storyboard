@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -68,10 +69,13 @@
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKc-Xj-ceZ">
-                                <rect key="frame" x="310" y="72" width="51" height="31"/>
+                                <rect key="frame" x="334" y="70" width="27" height="31"/>
+                                <connections>
+                                    <action selector="rotationButton:" destination="bca-f1-9GM" eventType="valueChanged" id="sGT-wN-7Xv"/>
+                                </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBQ-uo-VKs">
-                                <rect key="frame" x="246" y="74" width="64" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Rotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBQ-uo-VKs">
+                                <rect key="frame" x="270" y="74" width="64" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,8 +100,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9sk-j1-6fx" secondAttribute="trailing" id="cwN-zx-HIS"/>
                             <constraint firstItem="zes-Eu-gex" firstAttribute="top" secondItem="COB-jQ-otz" secondAttribute="bottom" constant="20" id="d4T-xe-W3B"/>
                             <constraint firstItem="CBQ-uo-VKs" firstAttribute="trailing" secondItem="JKc-Xj-ceZ" secondAttribute="leading" id="eLs-SR-9gA"/>
-                            <constraint firstItem="JKc-Xj-ceZ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" constant="8" id="fIJ-hN-85d"/>
-                            <constraint firstItem="CBQ-uo-VKs" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" constant="230" id="kpd-V3-1S6"/>
+                            <constraint firstItem="JKc-Xj-ceZ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" constant="6" id="fIJ-hN-85d"/>
+                            <constraint firstItem="CBQ-uo-VKs" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="trailingMargin" constant="-89" id="kpd-V3-1S6"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leading" id="ngi-tk-1Pn"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" id="p1e-rB-r42"/>
                             <constraint firstItem="bGH-8F-Y0J" firstAttribute="width" secondItem="sIS-jd-qeJ" secondAttribute="width" multiplier="0.5" id="rK5-NW-udI"/>
@@ -125,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-Fk-zbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3705" y="167"/>
+            <point key="canvasLocation" x="3704.8000000000002" y="166.8665667166417"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="JKt-xA-wSM">
@@ -181,7 +185,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                 </subviews>
                             </stackView>
