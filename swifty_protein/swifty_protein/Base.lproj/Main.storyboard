@@ -67,6 +67,15 @@
                                     <action selector="infoButton:" destination="bca-f1-9GM" eventType="touchUpInside" id="Bne-ql-h3A"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKc-Xj-ceZ">
+                                <rect key="frame" x="310" y="72" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBQ-uo-VKs">
+                                <rect key="frame" x="246" y="74" width="64" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,8 +91,13 @@
                             <constraint firstItem="akg-59-nbt" firstAttribute="top" secondItem="9sk-j1-6fx" secondAttribute="bottom" constant="8" id="PO5-Vu-9qN"/>
                             <constraint firstItem="akg-59-nbt" firstAttribute="width" secondItem="zQF-gx-5Bn" secondAttribute="width" id="PVe-8b-YMs"/>
                             <constraint firstItem="zes-Eu-gex" firstAttribute="top" secondItem="sIS-jd-qeJ" secondAttribute="bottom" id="T3L-cw-5re"/>
+                            <constraint firstItem="CBQ-uo-VKs" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" constant="10" id="VEN-9f-b9p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JKc-Xj-ceZ" secondAttribute="trailing" id="ajb-rJ-pyh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9sk-j1-6fx" secondAttribute="trailing" id="cwN-zx-HIS"/>
                             <constraint firstItem="zes-Eu-gex" firstAttribute="top" secondItem="COB-jQ-otz" secondAttribute="bottom" constant="20" id="d4T-xe-W3B"/>
+                            <constraint firstItem="CBQ-uo-VKs" firstAttribute="trailing" secondItem="JKc-Xj-ceZ" secondAttribute="leading" id="eLs-SR-9gA"/>
+                            <constraint firstItem="JKc-Xj-ceZ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" constant="8" id="fIJ-hN-85d"/>
+                            <constraint firstItem="CBQ-uo-VKs" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leadingMargin" constant="230" id="kpd-V3-1S6"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="leading" secondItem="zQF-gx-5Bn" secondAttribute="leading" id="ngi-tk-1Pn"/>
                             <constraint firstItem="sIS-jd-qeJ" firstAttribute="top" secondItem="hFe-Kt-q1j" secondAttribute="bottom" id="p1e-rB-r42"/>
                             <constraint firstItem="bGH-8F-Y0J" firstAttribute="width" secondItem="sIS-jd-qeJ" secondAttribute="width" multiplier="0.5" id="rK5-NW-udI"/>
@@ -105,6 +119,7 @@
                         <outlet property="displayStyle" destination="9sk-j1-6fx" id="R20-IR-w14"/>
                         <outlet property="gameView" destination="sIS-jd-qeJ" id="Omt-yj-mX0"/>
                         <outlet property="navTitle" destination="0VE-DY-O7t" id="kC3-W3-tSz"/>
+                        <outlet property="rotationSwitch" destination="JKc-Xj-ceZ" id="vuT-zk-Mwz"/>
                         <segue destination="d77-he-a3d" kind="show" identifier="goInfo" id="L3e-Cw-z32"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,8 @@ class GameViewController: UIViewController {
 
     var renderManager : RenderManager?
     
+    @IBOutlet weak var rotationSwitch: UISwitch!
+    
     let parser = ParserManager()
     
     @IBOutlet weak var displayStyle: UISegmentedControl!
@@ -125,6 +127,7 @@ class GameViewController: UIViewController {
         self.renderManager?.initWorld()
         self.parser.renderManager = self.renderManager
         self.parser.getLigand(nameSearchLigand: (self.ligandName ?? "a girl as no name"))
+        self.rotationSwitch.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
 
     }
     
