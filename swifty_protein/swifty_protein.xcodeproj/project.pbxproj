@@ -24,6 +24,7 @@
 		10C6E6781FB1B65E00B05592 /* RenderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6E6771FB1B65E00B05592 /* RenderManager.swift */; };
 		10C6E67A1FB1CF0C00B05592 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6E6791FB1CF0C00B05592 /* DataManager.swift */; };
 		10C6E67C1FB1CF2900B05592 /* Atome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C6E67B1FB1CF2900B05592 /* Atome.swift */; };
+		C3C195A41FC5EA3100EE266E /* PopUpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C195A31FC5EA3100EE266E /* PopUpManager.swift */; };
 		FF8C01F964831F73D989FB92 /* Pods_swifty_protein.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924921CF106CA383ED47A7C0 /* Pods_swifty_protein.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		10C6E6791FB1CF0C00B05592 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		10C6E67B1FB1CF2900B05592 /* Atome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atome.swift; sourceTree = "<group>"; };
 		924921CF106CA383ED47A7C0 /* Pods_swifty_protein.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swifty_protein.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C195A31FC5EA3100EE266E /* PopUpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpManager.swift; sourceTree = "<group>"; };
 		F30F075E7C4EC366A3E3F87D /* Pods-swifty_protein.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swifty_protein.release.xcconfig"; path = "Pods/Target Support Files/Pods-swifty_protein/Pods-swifty_protein.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				1049269C1FB4B372004BC6BE /* ListViewController.swift */,
 				107389711FB5A01700D17D63 /* ListLigandCell.swift */,
 				10C6E67B1FB1CF2900B05592 /* Atome.swift */,
+				C3C195A31FC5EA3100EE266E /* PopUpManager.swift */,
 				1049269E1FB4BA22004BC6BE /* ligands.txt */,
 				10C6E6791FB1CF0C00B05592 /* DataManager.swift */,
 				10C6E66C1FB1AF4900B05592 /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 				109B94D61FB34003003CDDEE /* AtomeNode.swift in Sources */,
 				1049269D1FB4B372004BC6BE /* ListViewController.swift in Sources */,
 				10035FA51FC4638100632993 /* InfoViewController.swift in Sources */,
+				C3C195A41FC5EA3100EE266E /* PopUpManager.swift in Sources */,
 				10C6E6621FB1AF4900B05592 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,7 +44,6 @@ class LogViewController: UIViewController {
                 print ("error")
             }
         }
-        
     }
     
     override func viewDidLoad() {

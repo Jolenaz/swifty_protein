@@ -18,6 +18,7 @@ class ParserManager: NSObject {
 
     var dataManager : DataManager
     var renderManager : RenderManager?
+    let popup = PopUpManager()
     
     func regexMatchForLiaison (string : String, re : String) -> [(Int, Int)] {
         var liaison : (String, String) = ("0", "1")
@@ -42,6 +43,7 @@ class ParserManager: NSObject {
             }
         } catch {
             print ("error")
+            popup.displayPopup(code: 0)
             //add popUp error
         }
         return liaisons
@@ -60,6 +62,7 @@ class ParserManager: NSObject {
         } catch {
             print ("error")
             result = "error"
+            popup.displayPopup(code: 0)
 //            add popUp error
         }
         return result ?? "error"
@@ -75,38 +78,44 @@ class ParserManager: NSObject {
         }
         
         Alamofire.download("https://files.rcsb.org/ligands/download/\(nameSearchLigand)_ideal.pdb", to: destination).responseData { response in
-            if let destURL = response.destinationURL {
-                do {
-                    let infoLigand = try String(contentsOf: destURL, encoding: .utf8)
-                    let infoTxt = infoLigand.components(separatedBy: .newlines)
-                    for elem in infoTxt {
-                        let typeObj = self.regexMatchForAtom(string: elem, re: "^((ATOM)|(CONECT))", indexMatch: 0)
-                        if typeObj == "ATOM" {
-                            //print ("create Atom ()")
-                            let atom = Atome()
-                            atom.name = self.regexMatchForAtom(string: elem, re: "[A-Z]+[\\d]*", indexMatch: 1)
-                            atom.pos.x = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 0))!
-                            atom.pos.y = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 1))!
-                            atom.pos.z = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 2))!
-                            atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0)) ?? Atome.kind.Other
-                            let indAtom = Int(self.regexMatchForAtom(string: elem, re: "(\\d{1,3})", indexMatch: 0))!
-                            self.dataManager.addAtome(newAtome: atom, ind: indAtom)
-                        } else if typeObj == "CONECT" {
-                            let liaisons : [(Int, Int)]
-                            liaisons = self.regexMatchForLiaison(string: elem, re: "(\\d{1,3})")
-                            var i = 1
-                            while i < liaisons.count {
-                                self.dataManager.addLiaison(newLiaison: liaisons[i])
-                                i = i + 1
-                            }
-                        }  else {
+            if response.result.isSuccess {
+                if let destURL = response.destinationURL {
+                    do {
+                        let infoLigand = try String(contentsOf: destURL, encoding: .utf8)
+                        let infoTxt = infoLigand.components(separatedBy: .newlines)
+                        for elem in infoTxt {
+                            let typeObj = self.regexMatchForAtom(string: elem, re: "^((ATOM)|(CONECT))", indexMatch: 0)
+                            if typeObj == "ATOM" {
+                                //print ("create Atom ()")
+                                let atom = Atome()
+                                atom.name = self.regexMatchForAtom(string: elem, re: "[A-Z]+[\\d]*", indexMatch: 1)
+                                atom.pos.x = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 0))!
+                                atom.pos.y = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 1))!
+                                atom.pos.z = Float(self.regexMatchForAtom(string: elem, re: "(-?\\d+\\.\\d{3})", indexMatch: 2))!
+                                atom.type = Atome.kind(rawValue: self.regexMatchForAtom(string: elem, re: "\\w+$", indexMatch: 0)) ?? Atome.kind.Other
+                                let indAtom = Int(self.regexMatchForAtom(string: elem, re: "(\\d{1,3})", indexMatch: 0))!
+                                self.dataManager.addAtome(newAtome: atom, ind: indAtom)
+                            } else if typeObj == "CONECT" {
+                                let liaisons : [(Int, Int)]
+                                liaisons = self.regexMatchForLiaison(string: elem, re: "(\\d{1,3})")
+                                var i = 1
+                                while i < liaisons.count {
+                                    self.dataManager.addLiaison(newLiaison: liaisons[i])
+                                    i = i + 1
+                                }
+                            }  else {
                                 //print ("END")
+                            }
                         }
                     }
+                    catch {
+                        print("error")
+                        self.popup.displayPopup(code: 0)
+                    }
                 }
-                catch {
-                    print("error")
-                }
+            } else {
+                self.popup.displayPopup(code: 0)
+                //                an error has occured
             }
             if (self.renderManager != nil){
                 DispatchQueue.main.async {
@@ -114,6 +123,8 @@ class ParserManager: NSObject {
                     self.renderManager?.print_ball(true, 0)
                 }
             } else {
+                self.popup.displayPopup(code: 0)
+//                an error has occured
             }
         }
     }
