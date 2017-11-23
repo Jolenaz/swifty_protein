@@ -69,10 +69,15 @@ class GameViewController: UIViewController {
                 UIImageWriteToSavedPhotosAlbum(gameImage, nil, nil, nil)
         }
         
+        let actionFive = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            alert.removeFromParentViewController()
+        }
+        
         alert.addAction(actionOne)
         alert.addAction(actionTwo)
         alert.addAction(actionTree)
         alert.addAction(actionFour)
+        alert.addAction(actionFive)
         self.present(alert, animated: true, completion: nil)
     }
     
