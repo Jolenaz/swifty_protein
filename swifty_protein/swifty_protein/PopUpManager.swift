@@ -15,17 +15,15 @@ class PopUpManager: UIAlertController {
         
         let title = "Oups !"
         var message : String?
-        
-        if code == 0 {
+        switch code{
+        case 0:
             message = "An error has occurred"
-        }
-        if code == 1 {
+        case 1:
             message = "You are not connected"
+        default:
+            message = "You are the best"
         }
-//        if code == 2 {
-//            message = "Authentication error, try again pls"
-//        }
-        
+     
         let popup = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         popup.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         UIApplication.shared.keyWindow?.rootViewController?.present(popup, animated: true, completion: nil)

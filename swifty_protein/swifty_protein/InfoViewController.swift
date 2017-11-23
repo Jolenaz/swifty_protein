@@ -17,11 +17,16 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     
+    @IBOutlet weak var infoImage: UIImageView!
+    
+    
     var ligandName : String?
     let popup = PopUpManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let img : UIImage = UIImage(named: "backInfo.jpeg")!
+        infoImage.image = img
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.nameLabel.text = ""
         self.formulaLabel.text = ""
