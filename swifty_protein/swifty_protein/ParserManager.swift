@@ -42,7 +42,7 @@ class ParserManager: NSObject {
                 }
             }
         } catch {
-            print ("error")
+            print ("nope")
             popup.displayPopup(code: 0)
             //add popUp error
         }
@@ -60,8 +60,7 @@ class ParserManager: NSObject {
                 result = resultMatch[indexMatch]
             }
         } catch {
-            print ("error")
-            result = "error"
+            result = "nope"
             popup.displayPopup(code: 0)
 //            add popUp error
         }
@@ -79,11 +78,26 @@ class ParserManager: NSObject {
         
         Alamofire.download("https://files.rcsb.org/ligands/download/\(nameSearchLigand)_ideal.pdb", to: destination).responseData { response in
             if response.result.isSuccess {
+                if response.result.value == nil {
+                    self.popup.displayPopup(code: 0)
+                    return
+                }
                 if let destURL = response.destinationURL {
                     do {
                         let infoLigand = try String(contentsOf: destURL, encoding: .utf8)
+                        if infoLigand.isEmpty {
+                            self.popup.displayPopup(code: 0)
+                            return
+                        }
                         let infoTxt = infoLigand.components(separatedBy: .newlines)
+                        print ("infoligand : ", infoLigand)
                         for elem in infoTxt {
+                            let err = self.regexMatchForAtom(string: elem, re: "[Nn]ot [Ff]ound", indexMatch: 0)
+                            if err != "error" {
+                                print ("Not found :  ", err)
+                                self.popup.displayPopup(code: 0)
+                                return
+                            }
                             let typeObj = self.regexMatchForAtom(string: elem, re: "^((ATOM)|(CONECT))", indexMatch: 0)
                             if typeObj == "ATOM" {
                                 //print ("create Atom ()")
@@ -104,17 +118,19 @@ class ParserManager: NSObject {
                                     i = i + 1
                                 }
                             }  else {
-                                //print ("END")
+//                                print ("NOT ATOM OR CONECT")
                             }
                         }
                     }
                     catch {
                         print("error")
                         self.popup.displayPopup(code: 0)
+                        return
                     }
                 }
             } else {
                 self.popup.displayPopup(code: 0)
+                return
                 //                an error has occured
             }
             if (self.renderManager != nil){
